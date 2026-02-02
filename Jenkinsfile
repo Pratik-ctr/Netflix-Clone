@@ -8,25 +8,10 @@ pipeline {
             }
         }
 
-        stage('Build Check') {
+        stage('Failing Stage') {
             steps {
-                echo 'Build stage completed'
+                sh 'exit 1'
             }
-        }
-
-        stage('Unit Test') {
-            steps {
-                echo 'No unit tests configured'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully'
-        }
-        failure {
-            echo 'Pipeline failed'
         }
     }
 }
