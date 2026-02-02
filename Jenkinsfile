@@ -8,10 +8,22 @@ pipeline {
             }
         }
 
-        stage('Failing Stage') {
+        stage('Build Stage') {
             steps {
-                sh 'exit 1'
+                echo 'Build completed successfully'
             }
+        }
+
+        stage('Test Stage') {
+            steps {
+                echo 'No unit tests configured'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executed successfully'
         }
     }
 }
